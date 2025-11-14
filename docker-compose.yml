@@ -1,16 +1,17 @@
 services:
-  image: mysql:8.0
-  container_name: wp_mysql
-  restart: always
-  environment:
-    MYSQL_DATABASE: wordpress
-    MYSQL_USER: wp_user
-    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  volumes:
-    - db_data:/var/lib/mysql
-  networks:
-    - wp_network
+  db:
+    image: mysql:8.0
+    container_name: wp_mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wp_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - wp_network
 
 volumes:
   db_data:
