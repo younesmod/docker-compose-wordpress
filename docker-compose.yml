@@ -21,9 +21,10 @@ services:
   wordpress:
     image: wordpress:latest
     container_name: wordpress_app
-    restart: always
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    restart: always
     ports:
       - "8080:80"
     environment:
