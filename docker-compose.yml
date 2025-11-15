@@ -1,7 +1,7 @@
 services:
   db:
     image: mysql:8.0
-    container_name: mysql_db
+    container_name: wp_mysql
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -20,7 +20,7 @@ services:
 
   wordpress:
     image: wordpress:latest
-    container_name: wordpress_app
+    container_name: wp_app
     depends_on:
       db:
         condition: service_healthy
