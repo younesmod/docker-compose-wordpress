@@ -12,6 +12,11 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - wp_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   wordpress:
     image: wordpress:latest
