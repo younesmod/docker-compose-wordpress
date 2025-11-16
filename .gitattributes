@@ -1,1 +1,1 @@
-docker-compose.yml linguist-language=Dockerfile
+docker-compose.yml linguist-language=Docker Compose YAML
