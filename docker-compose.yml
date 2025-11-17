@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:8.0
+    image: ghcr.io/younesmod/mysql:8.0
     container_name: wp_mysql
     restart: unless-stopped
     environment:
@@ -19,7 +19,7 @@ services:
       retries: 5
 
   wordpress:
-    image: wordpress:latest
+    image: ghcr.io/younesmod/wordpress:latest
     container_name: wp_app
     depends_on:
       db:
