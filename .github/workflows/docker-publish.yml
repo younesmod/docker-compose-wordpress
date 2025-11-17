@@ -1,8 +1,10 @@
 name: Build and Push Docker Images
 
 on:
-  push:
-    branches: [ "main" ]
+  workflow_dispatch:
+  ## if you want to do it automatically
+  # push:
+  #   branches: [ "main" ]
 
 jobs:
   build-push:
@@ -23,10 +25,24 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build WordPress image
+      - name: Mirror WordPress image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/wordpress:latest wordpress/
-
-      - name: Push WordPress image
-        run: |
+          docker pull wordpress:latest
+          docker tag wordpress:latest ghcr.io/${{ github.repository_owner }}/wordpress:latest
           docker push ghcr.io/${{ github.repository_owner }}/wordpress:latest
+
+      ## if you want to use Dockerfile
+      # - name: Build WordPress image
+      #   run: |
+      #     docker build -t ghcr.io/${{ github.repository_owner }}/wordpress:latest wordpress/
+
+      # - name: Pull official WordPress image
+      #   run: docker pull wordpress:latest
+
+      # - name: Tag image for GHCR
+      #   run: docker tag wordpress:latest ghcr.io/${{ github.repository_owner }}/wordpress:latest
+
+
+      # - name: Push WordPress image
+      #   run: |
+      #     docker push ghcr.io/${{ github.repository_owner }}/wordpress:latest
