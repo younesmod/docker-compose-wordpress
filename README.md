@@ -1,4 +1,4 @@
-![Docker Image](https://img.shields.io/badge/GHCR-WordPress-blue?logo=docker)
+![Docker Image](https://img.shields.io/badge/GHCR-WordPress+MySQL-blue?logo=docker)
 [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/younesmod/docker-compose-wordpress/blob/main/LICENSE)
 [![Scan Docker Image](https://github.com/younesmod/docker-compose-wordpress/actions/workflows/scan.yml/badge.svg?branch=main)](https://github.com/younesmod/docker-compose-wordpress/actions/workflows/scan.yml)
 [![Build and Push Docker Images](https://github.com/younesmod/docker-compose-wordpress/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/younesmod/docker-compose-wordpress/actions/workflows/docker-publish.yml)
